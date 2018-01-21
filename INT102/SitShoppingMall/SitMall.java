@@ -5,26 +5,29 @@ public class SitMall {
     public static void main(String[] Args){
     	Scanner input = new Scanner(System.in);
         SitShop s1 = new SitShop();
+        SitShop s2 = new SitShop();
         System.out.println("Welcome to SIT SHOPPING MALL");
         System.out.println("Shop1");
-        System.out.print("Enter name: ")
-        s1.name(input.next);
-        System.out.print("Enter Length (m): ")
-        s1.shopLength(input.nextDouble);
-        System.out.print("Enter Long (m): ")
-        s1.shopLong(input.nextDouble);
+        System.out.print("Enter name: ");
+        s1.setName(input.next());
+        System.out.print("Enter Length (m): ");
+        s1.setShopLength(input.nextDouble());
+        System.out.print("Enter Long (m): ");
+        s1.setShopLong(input.nextDouble());
+        s1.setArea();
 
-        System.out.println("Shop2");
-        System.out.print("Enter name: ")
-        s2.name(input.next);
-        System.out.print("Enter Length (m): ")
-        s2.shopLength(input.nextDouble);
-        System.out.print("Enter Long (m): ")
-        s2.shopLong(input.nextDouble);
+        System.out.println("\nShop2");
+        System.out.print("Enter name: ");
+        s2.setName(input.next());
+        System.out.print("Enter Length (m): ");
+        s2.setShopLength(input.nextDouble());
+        System.out.print("Enter Long (m): ");
+        s2.setShopLong(input.nextDouble());
+        s2.setArea();
 
         System.out.println("\n----------------------");
         System.out.println("Sit Shopping Mall has"+SitShop.getCountShop()+" shops");
-        System.out.println(""+s1+s2+"\n");
-        
+        System.out.println(s1);
+        System.out.println(s2);
     }
 }
