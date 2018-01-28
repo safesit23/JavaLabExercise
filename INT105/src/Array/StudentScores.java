@@ -1,4 +1,5 @@
 package Array;
+import java.util.Arrays;
 import java.util.Scanner;
 public class StudentScores {
     public static void main(String[] args) {
@@ -11,7 +12,9 @@ public class StudentScores {
         for(i=0;i<numOfSt;i++){
             student[i] = input.nextInt();
         }
-        
+        //Find highest
+        int highestScore = highestScore(student);
+        System.out.println("HS="+highestScore);
         //Show Info and grade
         for(i=0;i<numOfSt;i++){
             System.out.println("Student "+(i+1)+" score is "+student[i]+" and grade is "+studentGrade(student,i));
@@ -32,5 +35,12 @@ public class StudentScores {
             grade = 'F';
         }
         return grade;
+    }
+    
+    public static int highestScore(int[] student){
+        int hs;
+        Arrays.sort(student);
+        hs = student[student.length-1];
+        return hs;
     }
 }
