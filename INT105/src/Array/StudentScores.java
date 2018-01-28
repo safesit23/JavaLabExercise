@@ -1,7 +1,5 @@
 package Array;
-
 import java.util.Scanner;
-
 public class StudentScores {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
@@ -18,9 +16,5 @@ public class StudentScores {
         for(i=0;i<numOfSt;i++){
             System.out.println("Student "+i+" score is "+student[i]);
         }
-        
-        
-    
-    
     }
 }
