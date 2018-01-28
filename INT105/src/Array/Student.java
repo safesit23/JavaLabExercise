@@ -8,12 +8,12 @@ public class Student {
 
     public Student() {
         countStudent++;
-        this.studentId = 600+countStudent++;
+        this.studentId = 600+countStudent;
     }
 
     public Student(String name, double scores) {
         countStudent++;
-        this.studentId = 600+countStudent++;
+        this.studentId = 600+countStudent;
         this.name = name;
         this.scores = scores;
         setGrades();
@@ -21,10 +21,6 @@ public class Student {
 
     public int getStudentId() {
         return studentId;
-    }
-
-    public void setStudentId(int studentId) {
-        this.studentId = studentId;
     }
 
     public String getName() {
