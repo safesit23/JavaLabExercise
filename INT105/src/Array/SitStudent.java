@@ -22,5 +22,17 @@ public class SitStudent {
         for(i=0;i<std.length;i++){
             System.out.println(std[i].toString());
         }
+        System.out.println("\n"+highestScore(std));
+    }
+    
+    public static String highestScore(Student[] std){
+        double highScore = std[0].getScores();
+        int index = 0;
+        for(int i=0;i<std.length;i++){
+            if(std[i].getScores()>highScore){
+                index = i;
+            }
+        }
+        return "The Student named "+std[index].getName()+" get Highest Scores = "+std[index].getScores();
     }
 }
