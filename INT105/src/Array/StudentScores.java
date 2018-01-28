@@ -12,9 +12,25 @@ public class StudentScores {
             student[i] = input.nextInt();
         }
         
-        //Show Info
+        //Show Info and grade
         for(i=0;i<numOfSt;i++){
-            System.out.println("Student "+i+" score is "+student[i]);
+            System.out.println("Student "+(i+1)+" score is "+student[i]+" and grade is "+studentGrade(student,i));
         }
+    }
+    
+    public static char studentGrade(int[] student,int i){
+        char grade;
+        if(student[i]>=80){
+            grade = 'A';
+        }else if(student[i]>=70){
+            grade = 'B';
+        }else if(student[i]>=60){
+            grade = 'C';
+        }else if(student[i]>=50){
+            grade = 'D';
+        }else{
+            grade = 'F';
+        }
+        return grade;
     }
 }
