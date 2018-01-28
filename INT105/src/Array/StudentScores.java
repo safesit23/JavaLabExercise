@@ -14,22 +14,22 @@ public class StudentScores {
         }
         //Find highest
         int highestScore = highestScore(student);
-        System.out.println("HS="+highestScore);
+
         //Show Info and grade
         for(i=0;i<numOfSt;i++){
-            System.out.println("Student "+(i+1)+" score is "+student[i]+" and grade is "+studentGrade(student,i));
+            System.out.println("Student "+(i+1)+" score is "+student[i]+" and grade is "+studentGrade(student,i,highestScore));
         }
     }
     
-    public static char studentGrade(int[] student,int i){
+    public static char studentGrade(int[] student,int i,int hs){
         char grade;
-        if(student[i]>=80){
+        if(student[i]>=hs-10){
             grade = 'A';
-        }else if(student[i]>=70){
+        }else if(student[i]>=hs-20){
             grade = 'B';
-        }else if(student[i]>=60){
+        }else if(student[i]>=hs-30){
             grade = 'C';
-        }else if(student[i]>=50){
+        }else if(student[i]>=hs-40){
             grade = 'D';
         }else{
             grade = 'F';
