@@ -38,9 +38,12 @@ public class StudentScores {
     }
     
     public static int highestScore(int[] student){
-        int hs;
-        Arrays.sort(student);
-        hs = student[student.length-1];
+        int hs=student[0];
+        for(int i=0;i<student.length;i++){
+            if(student[i]>hs){
+                hs=student[i];
+            }
+        }
         return hs;
     }
 }
