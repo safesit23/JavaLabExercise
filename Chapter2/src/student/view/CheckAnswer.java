@@ -10,14 +10,14 @@ public class CheckAnswer {
         int trueAns=0;
         int countQ=solAnswer.length;
         int countA=stdAnswer.length;
-        if(countA==countQ){
-            for(int i=0;i<countQ;i++){
-                if(stdAnswer[i]==solAnswer[i]){
-                    trueAns++;
+        if(countA==countQ){                     //ถ้าจำนวนคำตอบเท่ากับคำถาม
+            for(int i=0;i<countQ;i++){          //วนLoopแต่ละข้อ
+                if(stdAnswer[i]==solAnswer[i]){     //ถ้าคำตอบตรงกับคำถาม
+                    trueAns++;                  //นับจำนวนเพิ่ม
                 }
             }
-        }else{
-            trueAns=-1;
+        }else{                          //ถ้าจำนวนคำตอบ ไม่เท่ากับ คำถาม
+            trueAns=-1;                 //ให้เท่ากับ -1
         }
        
         return trueAns;
