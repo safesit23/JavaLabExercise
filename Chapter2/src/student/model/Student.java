@@ -1,16 +1,15 @@
 package student.model;
 public class Student {
     private long stdId;
-    //Student object has a string object
     private String stdName;
-    //link to aggregated/container class
-    // Student has an address
+    private RegisteredCourse[] regisCourse;
     private Address stdAddr;
-    
-    public Student (long stdId, String stdName, Address stdAddr){
-        this.stdId=stdId;
-        this.stdName=stdName;
-        this.stdAddr=stdAddr;   //โยนได้ค่าเดียวคือ Memory Address  
+
+    public Student(long stdId, String stdName, RegisteredCourse[] regisCourse, Address stdAddr) {
+        this.stdId = stdId;
+        this.stdName = stdName;
+        this.regisCourse = regisCourse;
+        this.stdAddr = stdAddr;
     }
 
     public long getStdId() {
@@ -29,6 +28,14 @@ public class Student {
         this.stdName = stdName;
     }
 
+    public RegisteredCourse[] getRegisCourse() {
+        return regisCourse;
+    }
+
+    public void setRegisCourse(RegisteredCourse[] regisCourse) {
+        this.regisCourse = regisCourse;
+    }
+
     public Address getStdAddr() {
         return stdAddr;
     }
@@ -37,8 +44,14 @@ public class Student {
         this.stdAddr = stdAddr;
     }
 
+    public double gpax(){
+        double //หาได้จากคะแนนคูณหน่วยกิตบวกกัน ส่วนด้วย จำนวนหน่วยกิตทั้งหมด
+    }
+    
     @Override
     public String toString() {
-        return "Student{" + "stdId=" + stdId + ", stdName=" + stdName + ", stdAddr=" + stdAddr + '}';
-    } 
+        return "Student{" + "stdId=" + stdId + ", stdName=" + stdName + ", regisCourse=" + regisCourse + ", stdAddr=" + stdAddr + '}';
+    }
+    
+    
 }
