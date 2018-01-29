@@ -1,9 +1,9 @@
 package student.model;
 public class Card {
     private String suit;
-    private int rank;
+    private String rank;
 
-    public Card(String suit, int rank) {
+    public Card(String suit, String rank) {
         this.suit = suit;
         this.rank = rank;
     }
@@ -16,11 +16,11 @@ public class Card {
         this.suit = suit;
     }
 
-    public int getRank() {
+    public String getRank() {
         return rank;
     }
 
-    public void setRank(int rank) {
+    public void setRank(String rank) {
         this.rank = rank;
     }
 
