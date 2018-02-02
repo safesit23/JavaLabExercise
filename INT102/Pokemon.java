@@ -2,7 +2,7 @@ package Exercise;
 
 import java.util.Scanner;
 
-public class pokemon {
+public class Pokemon {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         int com1,com2,com3,hero1,hero2,hero3, powerup1,powerup2,powerup3,count=0,select;
