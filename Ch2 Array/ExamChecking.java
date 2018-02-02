@@ -1,5 +1,5 @@
 package student.view;
-public class CheckAnswer {
+public class ExamChecking {
     public static void main(String[] args) {
         char[] stdAnswer = new char [] {'A', 'B', 'C'};
         char[] solAnswer = new char[] {'A', 'C', 'C', 'A', 'B'};
