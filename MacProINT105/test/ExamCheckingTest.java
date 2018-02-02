@@ -45,8 +45,8 @@ public class ExamCheckingTest {
   
     @Test
     public void notEquallyNumberOfExam1(){
-        stdAnswer = new char [] {'B', 'D', 'C'};
-        solAnswer = new char[] {'B', 'D', 'C', 'D', 'A'};
+        stdAnswer = new char [] {'A', 'D', 'C'};
+        solAnswer = new char[] {'A', 'D', 'C', 'D', 'A'};
         int expectResult=4;
         int result=ExamChecking.examChecking(stdAnswer, solAnswer);
         assertEquals(expectResult, result);  
