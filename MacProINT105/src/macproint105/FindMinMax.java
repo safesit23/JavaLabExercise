@@ -5,8 +5,18 @@ public class FindMinMax {
         System.out.println(findMinMax(score));
     }
     public static int[] findMinMax(int[] score){
-        int[] result=null;
-        
+        int[] result= new int{score[0],score[0]};
+        for(int i=0;i<score.length;i++){
+            if(score[i]<0||score[i]>100){
+                return null;
+            }
+            if(score[i]<result[0]){
+                result[0]=score[i];
+            }
+            if(score[i]>result[1]){
+                result[i]=score[i];
+            }
+        }
         return result;
     }
     
