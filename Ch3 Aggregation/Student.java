@@ -45,7 +45,18 @@ public class Student {
     }
 
     public double gpax(){
-        double //หาได้จากคะแนนคูณหน่วยกิตบวกกัน ส่วนด้วย จำนวนหน่วยกิตทั้งหมด
+        double gpax;
+        int count = regisCourse.length;
+        double sumCourse=0;
+        double allCredit=0;
+        for(int i=0;i<count;i++){
+            allCredit=allCredit+regisCourse[i].credit;
+        }
+        for(int j=0;j<count;j++){
+            sumCourse=sumCourse+(regisCourse[i].grade*regisCourse[i].credit);
+        }
+        gpax=sumCourse+allCredit;
+        return gpax;
     }
     
     @Override
