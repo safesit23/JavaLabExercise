@@ -2,7 +2,7 @@ package Exercise;
 
 import java.util.Scanner;
 
-public class ReverseEx {
+public class ReversePass {
      
     public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
