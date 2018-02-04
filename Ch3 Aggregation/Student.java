@@ -69,5 +69,4 @@ public class Student {
         return "Student{" + "stdId=" + stdId + ", stdName=" + stdName + ", regisCourse=" + regisCourse + ", stdAddr=" + stdAddr + '}';
     }
     
-    
 }
