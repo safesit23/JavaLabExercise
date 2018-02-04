@@ -17,8 +17,9 @@ public class JavaOverflow {
         //Question3: Write a loop that uses Byte as loop variable. Start the loop from 0 to 149.
         System.out.println("\nQuestion3: ");
         byte numTest=0;
-        for(int i=149;numTest<=i;numTest++){
+        for(int i=0;i<=149;i++){
             System.out.println(numTest);
+            numTest++;
         }
         
     }
