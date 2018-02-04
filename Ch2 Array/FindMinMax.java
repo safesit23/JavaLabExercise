@@ -5,7 +5,7 @@ public class FindMinMax {
         System.out.println(findMinMax(score));
     }
     public static int[] findMinMax(int[] score){
-        int[] result= new int{score[0],score[0]};
+        int[] result= {score[0],score[0]};
         for(int i=0;i<score.length;i++){
             if(score[i]<0||score[i]>100){
                 return null;
