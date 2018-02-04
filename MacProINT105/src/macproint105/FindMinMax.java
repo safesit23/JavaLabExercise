@@ -14,7 +14,7 @@ public class FindMinMax {
                 result[0]=score[i];
             }
             if(score[i]>result[1]){
-                result[i]=score[i];
+                result[1]=score[i];
             }
         }
         return result;
