@@ -1,10 +1,10 @@
 package student.model;
 public class RegisteredCourse {
     private int courseId;
-    private int courseCredit;
-    private int grade;
+    private double courseCredit;
+    private double grade;
 
-    public RegisteredCourse(int courseId, int courseCredit, int grade) {
+    public RegisteredCourse(int courseId, double courseCredit, double grade) {
         this.courseId = courseId;
         this.courseCredit = courseCredit;
         this.grade = grade;
@@ -18,19 +18,19 @@ public class RegisteredCourse {
         this.courseId = courseId;
     }
 
-    public int getCourseCredit() {
+    public double getCourseCredit() {
         return courseCredit;
     }
 
-    public void setCourseCredit(int courseCredit) {
+    public void setCourseCredit(double courseCredit) {
         this.courseCredit = courseCredit;
     }
 
-    public int getGrade() {
+    public double getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(double grade) {
         this.grade = grade;
     }
 
