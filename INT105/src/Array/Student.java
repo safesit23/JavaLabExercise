@@ -5,6 +5,8 @@ public class Student {
     private double scores;
     private char grades;
     private static int countStudent;
+    private double weight;
+    private double height;
 
     public Student() {
         countStudent++;
@@ -17,6 +19,12 @@ public class Student {
         this.name = name;
         this.scores = scores;
         setGrades();
+    }
+
+    public Student(String name, double weight, double height) {
+        this.name = name;
+        this.weight = weight;
+        this.height = height;
     }
 
     public int getStudentId() {
@@ -55,6 +63,22 @@ public class Student {
         }else{
             this.grades = 'F';
         }  
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public void setHeight(double height) {
+        this.height = height;
     }
     
     public static int getCountStudent() {
