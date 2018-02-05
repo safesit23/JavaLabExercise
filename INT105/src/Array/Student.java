@@ -1,69 +1,27 @@
 package Array;
 public class Student {
-    private int studentId;
     private String name;
-    private double scores;
-    private char grades;
-    private static int countStudent;
+    private double weight;
+    private double height;
+    private double bmi;
 
-    public Student() {
-        countStudent++;
-        this.studentId = 600+countStudent;
-    }
-
-    public Student(String name, double scores) {
-        countStudent++;
-        this.studentId = 600+countStudent;
+    public Student(String name, double weight, double height) {
         this.name = name;
-        this.scores = scores;
-        setGrades();
-    }
-
-    public int getStudentId() {
-        return studentId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public double getScores() {
-        return scores;
-    }
-
-    public void setScores(double scores) {
-        this.scores = scores;
-    }
-
-    public char getGrades() {
-        return grades;
-    }
-
-    public void setGrades() {
-        if(scores>=80){
-            this.grades = 'A';
-        }else if(scores>=70){
-           this.grades = 'B';
-        }else if(scores>=60){
-            this.grades = 'C';
-        }else if(scores>=50){
-            this.grades = 'D';
+        this.weight = weight;
+        this.height = height;
+        if(this.height<0||this.weight<0){
+            bmi=-1;
+        }else if(height==0){
+            bmi=-2;
         }else{
-            this.grades = 'F';
-        }  
+            bmi=this.weight/Math.pow(this.height, 2);
+        }
+    }
+
+
+    public double getBmi() {
+        return bmi;
     }
     
-    public static int getCountStudent() {
-        return countStudent;
-    }
-
-    @Override
-    public String toString() {
-        return "ID: " + studentId + " | Name=" + name + " | scores=" + scores + " | Grade '" + grades + "'" ;
-    }
     
 }
