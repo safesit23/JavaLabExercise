@@ -15,11 +15,15 @@ public class JavaOverflow {
         System.out.println("Decrease Value of b by 1:"+(b--));
         
         //Question3: Write a loop that uses Byte as loop variable. Start the loop from 0 to 149.
-        System.out.println("\nQuestion3: ");
+        System.out.println("\nQuestion(Ver1): ");
         byte numTest=0;
         for(int i=0;i<=149;i++){
             System.out.println(numTest);
             numTest++;
+        }
+        System.out.println("\nQuestion(Ver2): ");
+        for(byte i=0;i<=149;i++){
+            System.out.println(i);
         }
         
     }
