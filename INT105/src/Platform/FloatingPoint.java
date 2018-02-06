@@ -25,12 +25,12 @@ public class FloatingPoint {
         
         //Infinity/Nan
         System.out.println("\nInfinity/Nan");
-        float divFloat1=1/0;
-        float divFloat2=0/0;
-        //float sqrtFloat=Math.sqrt(-1);
+        float divFloat1=(float)1/0;
+        float divFloat2=(float)0/0;
+        float sqrtFloat=(float) Math.sqrt(-1);
         System.out.println("Value of divFloat1 = "+divFloat1);
         System.out.println("Value of divFloat2 = "+divFloat2);
-        //System.out.println("Value of sqrtFloat = "+sqrtFloat);
+        System.out.println("Value of sqrtFloat = "+sqrtFloat);
         
         
     }
