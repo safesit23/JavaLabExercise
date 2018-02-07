@@ -11,17 +11,19 @@ public class JavaOverflow {
         //Question2:  Declare variable a and b as Byte. Assign the MAX_VALUE to a and MIN_VALUE to b. 
         //Increase the value of a by 1 (a++) and decrease to value of b by 1 (b--)
         System.out.println("\nQuestion2: ");
-        System.out.println("Increase Value of a by 1:"+(a++));
-        System.out.println("Decrease Value of b by 1:"+(b--));
+        a++;
+        b--;
+        System.out.println("Increase Value of a(Max) by 1:"+(a));
+        System.out.println("Decrease Value of b(Min) by 1:"+(b));
         
         //Question3: Write a loop that uses Byte as loop variable. Start the loop from 0 to 149.
-        System.out.println("\nQuestion(Ver1): ");
+        System.out.println("\nQuestion(Ver1): ");   //ค่าจะโชว์ 0,...,127,-128,-127,...
         byte numTest=0;
         for(int i=0;i<=149;i++){
             System.out.println(numTest);
             numTest++;
         }
-        System.out.println("\nQuestion(Ver2): ");
+        System.out.println("\nQuestion(Ver2): ");   //Loop Infinity
         for(byte i=0;i<=149;i++){
             System.out.println(i);
         }
