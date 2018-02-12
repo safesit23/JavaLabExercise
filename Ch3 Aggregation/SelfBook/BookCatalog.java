@@ -46,8 +46,7 @@ public class BookCatalog {
         int value=-1;
         for (int i = 0; i < books.length; i++) {
             if (books[i].equals(bookUnAvailable)==true) {   //ถ้าช่องตำแหน่ง i เป็นหนังสือเล่มเดียวกับ bookUnAvailable
-                books[i] = null;                            //ให้ช่องนั้นเป็นว่าง (เอาหนังสือออก)    
-                numOfBooks--;                               //ลบจำนวนหนังสือออก
+                books[i].setAvailable(false);               //ให้ช่องนั้นมีสถานะ false    
                 value=i; break;                             //บอกว่าเล่มที่เอาออกอยู่ตำแหน่งไหน
             }
         }
