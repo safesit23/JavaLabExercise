@@ -48,13 +48,13 @@ public class Book {
 
     public boolean equals(Object obj) {
         Book temp = null;
-        if (obj != null && obj instanceof Book) {
-            temp = (Book) obj;
-            if (isbn == temp.isbn) {
-                return true;
+        if (obj != null && obj instanceof Book) {       //Object ที่รับเข้ามาไม่ว่างและเป็นลูกหลานของ Book
+            temp = (Book) obj;                          //Casting ให้ Object เป็น book
+            if (isbn == temp.isbn) {                    //ตัวแปลที่ต้องการเช็ค
+                return true;                            //ถ้าตรงกันให้ return true
             }
         }
-        return false;
+        return false;                                   //ถ้าไม่ตรงกันให้ return false
     }
 
     @Override
