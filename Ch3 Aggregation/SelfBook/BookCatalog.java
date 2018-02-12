@@ -23,17 +23,17 @@ public class BookCatalog {
 
     public int addBook(Book bookAdded) {
         int value=-1;
-        if(numOfBooks<books.length){
-            books[numOfBooks]=bookAdded;
-            value=numOfBooks;
-            numOfBooks++;
+        if(numOfBooks<books.length){                    //เลข Index หนังสือต้องน้อยกว่าความยาวของ Array
+            books[numOfBooks]=bookAdded;                //ใส่หนังสือไปยังตำแหน่ง books[numOfBooks] ตั้งต้นเริ่มที่ 0
+            value=numOfBooks;                           //ให้ value เป็นช่อง Index ที่ใส่หนังสือ
+            numOfBooks++;                               //ในครั้งต่อหนังสือจะถูกใส่ช่อง Index ต่อไป (นับจำนวนหนังสือ +1)
         }
         
         /*
         for (int i = 0; i < books.length; i++) {        //วนทุกช่องของ Array
             if (books[i] == null) {                     //ถ้าช่องตำแหน่ง i ไม่มีหนังสือ
                 books[i] = bookAdded;                   //เอาหนังสือที่รับเข้ามาไปวางตำแหน่ง i
-                numOfBooks++;                           //นับจำนวนหนังสือ +1;
+                numOfBooks++;                           //นับจำนวนหนังสือ +1
                 value=i; break;                         //Return ค่าช่องที่มีหนังสือ และออกจาก Loop
             }
         }
