@@ -3,6 +3,11 @@ public class StudentIn {
     private long studentid;
     private String stdName;
 
+    public StudentIn() {
+        //super();
+        System.out.println("Student Constructor Working");
+    }
+
     public StudentIn(long studentid, String stdName) {
         this.studentid = studentid;
         this.stdName = stdName;
