@@ -2,6 +2,10 @@ package Ch4Inheritance;
 public class UnderGraduateStudentIn extends StudentIn{
     private String project;
 
+    public UnderGraduateStudentIn() {
+    System.out.println("UnderGraduateStudent Constructor Working");
+    }
+    
 
     public String getProject() {
         return project;
