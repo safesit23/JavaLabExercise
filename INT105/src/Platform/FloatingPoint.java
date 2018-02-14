@@ -13,8 +13,8 @@ public class FloatingPoint {
         //Cancellation Error 
         //ผลลัพธ์ที่ใช้ float กับ double แตกต่างกัน
         System.out.println("\n2.Cancellation Error ");
-        float result1=1+1.234e-5f-1;    //e-5 คือ 10 กำลัง-5
-        double result2=1+1.234e-5f-1;
+        float result1=(float)1+1.234e-5f-1;    //e-5 คือ 10 กำลัง-5
+        double result2=(double)1+1.234e-5f-1;
         System.out.println("Value of 1 + 1.234e-5f - 1 in float = \t"+(result1));
         System.out.println("Value of 1 + 1.234e-5f - 1 in double = \t"+(result2));
         
