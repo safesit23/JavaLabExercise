@@ -14,5 +14,11 @@ public abstract class SquareInterface implements ShapeInterface{
     public double findArea(){
         return side*side;
     }
+
+    @Override
+    public String toString() {
+        return "SquareInterface{" + "side=" + side + '}';
+    }
+    
 }
 
