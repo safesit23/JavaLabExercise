@@ -9,5 +9,11 @@ public class Square2Interface extends SquareInterface{
     public double findCircumference(){
         return getSide()*4;
     }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+    
 }
 
