@@ -15,6 +15,7 @@ public class TestShape {
         double areasquare = sq1.findArea();
         double circumsquare = sq1.findCircumference();
         System.out.println("Area= "+areasquare+"\nCircum= "+circumsquare);
+        System.out.println(sq1);
     }
 }
 
