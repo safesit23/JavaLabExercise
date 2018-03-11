@@ -1,7 +1,6 @@
 import TrainerApp.EatingFood;
 import TrainerApp.Elliptical;
 import TrainerApp.Exercise;
-import TrainerApp.TrainerApp;
 import TrainerApp.Treadmill;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -11,7 +10,6 @@ public class TestTrainerApp {
     private Elliptical elliptical = new Elliptical();
     private Exercise exercise = new Exercise();
     private EatingFood eatingFood = new EatingFood();
-    private TrainerApp[] trainerApp = new TrainerApp[]{new TrainerApp("Ann",1600,55),new TrainerApp("Boo",1200,49),new TrainerApp("Charlie",2000,60)};
 
     public TestTrainerApp() {
     }
@@ -76,8 +74,5 @@ public class TestTrainerApp {
         assertEquals(expectResult, result);
     }
     
-    
-    //---------------------CourseExercise------------------------------
-
 }
 /*Jatawatsafe*/
