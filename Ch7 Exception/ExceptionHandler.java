@@ -1,10 +1,18 @@
 package ch7exception;
 
 public class ExceptionHandler {
-    public static double divideByzero(int dividend, int divider)throws ArithmeticException {
+    public static double divideByzero(int dividend, int divider)
+            throws ArithmeticException, NegativeDividerException {
         System.out.println("-------divideByzero begin-------");
         double result=0;
+        
+        if(divider<0)
+            throw new NegativeDividerException("Negative Divider");
+        
         result=dividend/divider;
+        
+        
+        
         /*try{
             result=dividend/divider;    //throw ArithmetricException()
             System.out.println("Try block");
@@ -24,12 +32,15 @@ public class ExceptionHandler {
     public static double doSomeThing(){
         System.out.println("-------doSomeThing begin-------");
         double answer=0;
-        try{
-            answer=divideByzero(5,0);    //throw ArithmetricException()
+       try{
+            answer=divideByzero(5,-2);    //throw ArithmetricException()
         }
-        catch(Exception ae){
+        catch(ArithmeticException ae){
            ae.printStackTrace();
         }
+       catch(NegativeDividerException ae){
+           System.out.println("NEGATIVE Catch Working: "+ae.getMessage());
+       }
         finally{
             System.out.println("finally #1");
             System.out.println("finally #2");
