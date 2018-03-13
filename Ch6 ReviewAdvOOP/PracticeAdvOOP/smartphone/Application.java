@@ -19,6 +19,7 @@ public class Application extends Item{
         this.icon = icon;
     }
     
+    @Override
     public boolean equals(Object obj){
         Application temp=null;
         if(obj !=null && obj instanceof Application){
