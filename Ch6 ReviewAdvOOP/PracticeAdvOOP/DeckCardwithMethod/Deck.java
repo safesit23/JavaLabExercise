@@ -8,12 +8,38 @@ public class Deck {
         this.cards = new Card[52];
         this.size = 52;
         int count=0;
-        for(int i=0;i<4;i++){
-            for(int j=1;j<=13;j++){
-                cards[count]= new Card(j,i);
+        /*
+        for(int j=0;j<4;j++){
+            for(int i=1;i<=13;i++){
+                cards[count]= new Card(i,j);
                 count++;
             }
         }
+        */
+        /**/
+        for(int j=0;j<4;j++){ 
+            for(int i=1;i<=13;i++){
+                int suit,rank;
+                switch(j){
+                    case 0: suit= Card.SPADES;      break; 
+                    case 1: suit= Card.SPADES;      break;  
+                    case 2: suit= Card.DIAMONDS;    break;  
+                    default: suit= Card.CLUBS;      break;         
+                }
+                switch(i){
+                    case 1:     rank=Card.ACE;      break;
+                    case 11:    rank=Card.JACK;     break;
+                    case 12:    rank=Card.QUEEN;    break;
+                    case 13:    rank=Card.KING;     break;
+                    default:    rank=i;
+                }
+                cards[count]= new Card(rank,suit);
+                count++;
+            }
+        }
+        /**/
+        
+        
     }
 
     /**
