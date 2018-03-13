@@ -1,11 +1,5 @@
 package ch7exception;
 
-
-
-
-
-
-
 public class ExceptionHandler {
     public static double divideByzero(int dividend, int divider)throws ArithmeticException {
         System.out.println("-------divideByzero begin-------");
