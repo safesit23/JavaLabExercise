@@ -22,7 +22,7 @@ public class Deck {
                 int suit,rank;
                 switch(j){
                     case 0: suit= Card.SPADES;      break; 
-                    case 1: suit= Card.SPADES;      break;  
+                    case 1: suit= Card.HEARTS;      break;  
                     case 2: suit= Card.DIAMONDS;    break;  
                     default: suit= Card.CLUBS;      break;         
                 }
