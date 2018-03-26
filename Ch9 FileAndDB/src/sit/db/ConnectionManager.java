@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Properties;
 
-public class ConnectionManager {
+public class ConnectionManager { //สำหรับ Database ใดๆก็ได้
     //เก็บแยก items
     public static Connection createConnection 
         (String url, String username, String psw) 
@@ -18,10 +18,15 @@ public class ConnectionManager {
             return cn;
     }
     
-    //อีกวิธีหนึ่งเอา items ไปเก็บใน Properties
+    //Another ways to Connection by Properties
     public static Connection createConnection(String url, Properties props) throws SQLException{
         Connection cn=DriverManager.getConnection(url, props);
         return cn;
+    }
+    
+    //Close Connection
+    public static void closeConnection(Connection cn) throws SQLException{
+        cn.close();
     }
     
 }
