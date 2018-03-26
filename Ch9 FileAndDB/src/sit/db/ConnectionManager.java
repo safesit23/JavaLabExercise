@@ -20,9 +20,7 @@ public class ConnectionManager {
     
     //อีกวิธีหนึ่งเอา items ไปเก็บใน Properties
     public static Connection createConnection(String url, Properties props) throws SQLException{
-        String username=props.getProperty("username");
-        String psw=props.getProperty("password");
-        Connection cn=DriverManager.getConnection(url, username, psw);
+        Connection cn=DriverManager.getConnection(url, props);
         return cn;
     }
     
