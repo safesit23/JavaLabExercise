@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Properties;
 import sit.db.ConnectionManager;
+import sit.model.Student;
 
 public class StudentController { //จัดการเฉพาะ Student DB
     private Connection con;
@@ -38,4 +39,18 @@ public class StudentController { //จัดการเฉพาะ Student DB
         ConnectionManager.closeConnection(con);
     }
     
+    //Insert Student
+    public int insertStudent(Student std) throws SQLException{
+        int insertedRec=0;
+        int id=std.getStdId();
+        String first=std.getStdFirstName();
+        String last=std.getStdLastName();
+        String sq1="insert into student(stdId,firstname,lastname) "
+                + "values ("+id+", '"+first+"', '"+last+"')";
+        //Print ข้อมูลมาเพื่อเช็ค
+        System.out.println("SQL1="+sq1);
+        Statement stmt=con.createStatement();
+        insertedRec=stmt.executeUpdate(sq1);
+        return insertedRec;
+    }
 }
