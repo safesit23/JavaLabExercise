@@ -25,7 +25,7 @@ public class TestScanner {
                     String firstname=scStr.next();
                     String lastname=scStr.next();
                     Student std=new Student(id,firstname,lastname); //1 Records
-                    stdList.add(std);
+                    stdList.add(std);   //เก็บข้อมูล
                     
                     numOfWord+=1;
                     //System.out.println(scStr.next());
@@ -39,6 +39,11 @@ public class TestScanner {
         for(Student stu:stdList){
             System.out.println(stu);
         }
+        /*
+        for(int i=0;i<stdList.size();i++){  //ดูขนาดผ่าน size **ใช้ length ไม่ได้
+            System.out.println(stdList.get(i)); //ดึงข้อมูลแต่ละชุดออกมา
+        }
+        */
         
         System.out.println("Number of Lines: "+numOfLine);
         System.out.println("Number of Words: "+numOfWord);
