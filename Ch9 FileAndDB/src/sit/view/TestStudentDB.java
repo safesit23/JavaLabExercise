@@ -12,7 +12,10 @@ public class TestStudentDB {
             dbPros.setProperty("user", "sit");
             dbPros.setProperty("password", "sit");
             StudentController stdCtrl = new StudentController(dbPros);
-                    
+            
+            //deleteAllStudents
+            int recs=stdCtrl.deleteAllStudents();
+            System.out.println("deleted"+recs+" records");
         }
         /*
         catch(ClassNotFoundException cnfEx){
