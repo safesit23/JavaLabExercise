@@ -1,13 +1,29 @@
 package ch9.fileanddb;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class TestScanner {
     public static void main(String[] args) {
-        String myMessage="Mango    Grape   Apple   Guana";
-        Scanner sc = new Scanner(myMessage);
-        while(sc.hasNext()){    //ยังมีคำให้อ่านไหม
-            System.out.println(sc.next());  //สนใจเป็นคำ
+        try{
+            File myFile=new File("StudentList.txt");
+            Scanner sc = new Scanner(myFile);
+            while(sc.hasNextLine()){   
+                String line=sc.nextLine();
+                System.out.println(line);
+                
+                Scanner scStr=new Scanner(line);
+                while(scStr.hasNext()){
+                    System.out.println(scStr.next());
+                }
+                System.out.println("----");
+            }
         }
+        catch(FileNotFoundException ff){
+            System.out.println(ff);
+        }
+
+        
     }
 }
