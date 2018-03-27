@@ -16,6 +16,11 @@ public abstract class Application{
         this.description = description;
     }
     
+    public Application(String name, String image, String description) {
+        this.name = name;
+        this.image = image;
+        this.description = description;
+    }
 
     public String getName() {
         return name;
