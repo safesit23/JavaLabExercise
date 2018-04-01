@@ -50,14 +50,23 @@ public class StudentController { //จัดการเฉพาะ Student DB
         String sq1="insert into student(stdId,firstname,lastname) "
                 + "values ("+id+", '"+first+"', '"+last+"')";
         //Print ข้อมูลมาเพื่อเช็ค
-        System.out.println("SQL1="+sq1);
+        System.out.println("SQL inserted="+sq1);
         Statement stmt=con.createStatement();
         insertedRec=stmt.executeUpdate(sq1);
         return insertedRec;
     }
     
-    public void updateStudent(Student student){
-        
+    public int updateStudent(Student std) throws SQLException{
+        int insertedRec=0;
+        int id=std.getStdId();
+        String first=std.getStdFirstName();
+        String last=std.getStdLastName();
+        String sq1="UPDATE student SET FIRSTNAME='"+first+"',lastname='"+last+"' WHERE stdid="+id;
+        //Print ข้อมูลมาเพื่อเช็ค
+        System.out.println("SQL update="+sq1);
+        Statement stmt=con.createStatement();
+        insertedRec=stmt.executeUpdate(sq1);
+        return insertedRec;
     }
     
     public int insertStudentBatch(File student){
@@ -75,19 +84,20 @@ public class StudentController { //จัดการเฉพาะ Student DB
     public void findStudentById(int id) throws SQLException{
         ArrayList<Student> stdList = new ArrayList<Student>();
         String sql = "SELECT * FROM STUDENT WHERE STDID="+id; 
-            // เตรียมคำสั่ง SQL
-            Statement stmt=con.createStatement();
-            ResultSet resultSet = stmt.executeQuery(sql);
+        //Print ข้อมูลมาเพื่อเช็ค
+        System.out.println("SQL findById="+sql);    
+        // เตรียมคำสั่ง SQL
+        Statement stmt=con.createStatement();
+        ResultSet resultSet = stmt.executeQuery(sql);
  
-            // วนลูปดึงข้อมูลจนกว่าจะหมด
-            while (resultSet.next()) {
-                // กำหนดค่าให้ออบเจ็กต์โดยค่าที่ดึงมาจากตาราง Student
-                int tempid=resultSet.getInt("STDID");
-                String firstname=resultSet.getString("FIRSTNAME");
-                String lastname=resultSet.getString("LASTNAME");
-                Student std=new Student(tempid,firstname,lastname); //1 Records
-                stdList.add(std);   //เก็บข้อมูล
-                // เก็บแต่ละออบเจ็กต์ลงไปในตัวแปรประเภท List
+        // วนลูปดึงข้อมูลจนกว่าจะหมด
+        while (resultSet.next()) {
+        // กำหนดค่าให้ออบเจ็กต์โดยค่าที่ดึงมาจากตาราง Student
+            int tempid=resultSet.getInt("STDID");
+            String firstname=resultSet.getString("FIRSTNAME");
+            String lastname=resultSet.getString("LASTNAME");
+            Student std=new Student(tempid,firstname,lastname); //1 Records
+            stdList.add(std);   //เก็บข้อมูลแต่ละออบเจ็กต์ลงไปในตัวแปรประเภท List
             }
  
         for(Student stu:stdList){
@@ -98,19 +108,20 @@ public class StudentController { //จัดการเฉพาะ Student DB
     public void findStudentByname(String name) throws SQLException{
         ArrayList<Student> stdList = new ArrayList<Student>();
         String sql = "SELECT * FROM STUDENT WHERE FIRSTNAME='"+name+"'"; 
-            // เตรียมคำสั่ง SQL
-            Statement stmt=con.createStatement();
-            ResultSet resultSet = stmt.executeQuery(sql);
+        //Print ข้อมูลมาเพื่อเช็ค
+        System.out.println("SQL findByName="+sql);        
+        // เตรียมคำสั่ง SQL
+        Statement stmt=con.createStatement();
+        ResultSet resultSet = stmt.executeQuery(sql);
  
-            // วนลูปดึงข้อมูลจนกว่าจะหมด
-            while (resultSet.next()) {
-                // กำหนดค่าให้ออบเจ็กต์โดยค่าที่ดึงมาจากตาราง Student
-                int tempid=resultSet.getInt("STDID");
-                String firstname=resultSet.getString("FIRSTNAME");
-                String lastname=resultSet.getString("LASTNAME");
-                Student std=new Student(tempid,firstname,lastname); //1 Records
-                stdList.add(std);   //เก็บข้อมูล
-                // เก็บแต่ละออบเจ็กต์ลงไปในตัวแปรประเภท List
+        // วนลูปดึงข้อมูลจนกว่าจะหมด
+        while (resultSet.next()) {
+            // กำหนดค่าให้ออบเจ็กต์โดยค่าที่ดึงมาจากตาราง Student
+            int tempid=resultSet.getInt("STDID");
+            String firstname=resultSet.getString("FIRSTNAME");
+             String lastname=resultSet.getString("LASTNAME");
+            Student std=new Student(tempid,firstname,lastname); //1 Records
+            stdList.add(std);   //เก็บข้อมูลแต่ละออบเจ็กต์ลงไปในตัวแปรประเภท List
             }
  
         for(Student stu:stdList){
