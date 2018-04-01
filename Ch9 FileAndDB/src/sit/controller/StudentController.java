@@ -1,10 +1,13 @@
 package sit.controller;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
+import java.util.Scanner;
 import sit.db.ConnectionManager;
 import sit.model.Student;
 
@@ -56,6 +59,42 @@ public class StudentController { //จัดการเฉพาะ Student DB
         return insertedRec;
     }
     
+    public int insertStudentBatch(File student) throws FileNotFoundException, SQLException{
+        int insertedRec=0;
+        String sq1;
+            Scanner sc = new Scanner(student);
+            while(sc.hasNextLine()){   //Loop นับบรรทัด   โดยผูกกับไฟล์
+                String line=sc.nextLine();
+                Scanner scStr=new Scanner(line);
+                while(scStr.hasNext()){         //Loop นับคำ โดยผูกกับString
+                    int id=scStr.nextInt();
+                    String firstname=scStr.next();
+                    String lastname=scStr.next(); 
+                    sq1="insert into student(stdId,firstname,lastname) "
+                    + "values ("+id+", '"+firstname+"', '"+lastname+"')";
+                    Statement stmt=con.createStatement();
+                    insertedRec+=stmt.executeUpdate(sq1);
+                }
+            }
+        return insertedRec;
+    }
+    
+    public int insertStudentBatch(ArrayList<Student> studentList) throws SQLException{
+        int insertedRec=0;
+        int count=studentList.size();
+        String sq1;
+        for(int i=0;i<count;i++){
+            int id=studentList.get(i).getStdId();
+            String firstname=studentList.get(i).getStdFirstName();
+            String lastname=studentList.get(i).getStdLastName();
+            sq1="insert into student(stdId,firstname,lastname) "
+                    + "values ("+id+", '"+firstname+"', '"+lastname+"')";
+                    Statement stmt=con.createStatement();
+                    insertedRec+=stmt.executeUpdate(sq1);
+        }
+        return insertedRec;
+    }
+    
     public int updateStudent(Student std) throws SQLException{
         int insertedRec=0;
         int id=std.getStdId();
@@ -69,17 +108,6 @@ public class StudentController { //จัดการเฉพาะ Student DB
         return insertedRec;
     }
     
-    public int insertStudentBatch(File student){
-        int insertedRec=0;
-        
-        return insertedRec;
-    }
-    
-    public int insertStudentBatch(ArryList<Student> studentList){
-        int insertedRec=0;
-        
-        return insertedRec;
-    }
     
     public void findStudentById(int id) throws SQLException{
         ArrayList<Student> stdList = new ArrayList<Student>();
