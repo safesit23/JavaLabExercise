@@ -1,0 +1,5 @@
+SERVER_NAME=localhost
+SERVER_PORT=1527
+DB_NAME=student
+DB_USER=sit
+DB_PASSWORD=sit
