@@ -10,7 +10,7 @@ import sit.controller.StudentController;
 import sit.model.Student;
 
 public class TestStudentDB {
-    public static void main(String[] args) throws FileNotFoundException, IOException {
+    public static void main(String[] args){
         int rec;
         try{
             //Connection1
@@ -75,6 +75,14 @@ public class TestStudentDB {
             System.out.println(cnfEx);
         }
         */
+        catch(FileNotFoundException fnfEx){
+            System.out.println(fnfEx);
+        }
+        
+        catch(IOException ioEx){
+            System.out.println(ioEx);
+        }
+        
         catch(SQLException sqlEx){
             System.out.println(sqlEx);
         }
