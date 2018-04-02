@@ -26,6 +26,7 @@ public class TestStudentDB {
             */
             
             //Connection by Properties by File
+            
             String file="dpProperties.txt";
             StudentController stdCtrl = new StudentController(file);
             
@@ -78,9 +79,20 @@ public class TestStudentDB {
             */
             
             //selectStudent by Aj.Umaporn
+            /*
             ArrayList<Student> stdList = stdCtrl.selectStudent();
             for(int i=0;i<stdList.size();i++){
                 System.out.println(stdList.get(i));
+            }
+            */
+            
+            //execute SQL Command
+            String sq1="SELECT * FROM STUDENT";
+            ArrayList<Student> stdList = stdCtrl.executeSQLCommand(sq1);
+            if(stdList!=null){
+                for(int i=0;i<stdList.size();i++){
+                    System.out.println(stdList.get(i));
+                }
             }
             
         }
