@@ -208,5 +208,31 @@ public class StudentController { //จัดการเฉพาะ Student DB
         return stdList;
     }
 
+    //execute Command
+    public ArrayList<Student> executeSQLCommand(String sq1) throws SQLException{
+        ArrayList<Student> stdList = null;
+        Statement stmt=con.createStatement();
+        boolean isSelectedCmd=stmt.execute(sq1);
+        if(isSelectedCmd){  //true return stdList
+            stdList = new ArrayList<>();
+            ResultSet rs=stmt.getResultSet();
+            while(rs.next()){
+            //get datatype โดยระบุ column
+            int id = rs.getInt("STDID");   
+            String firstname=rs.getString("FIRSTNAME");
+            String lastname=rs.getString("LASTNAME");
+            //orm process
+            Student std=new Student(id,firstname,lastname); //1 Records
+            stdList.add(std);   //เก็บข้อมูลแต่ละออบเจ็กต์ลงไปในตัวแปรประเภท List
+            }
+        }else{  //false return null
+            int updateRecs=stmt.getUpdateCount();
+            System.out.println(updateRecs+" update Recs");
+        }
+        
+        return stdList;
+    }
+    
+    
     
 }
