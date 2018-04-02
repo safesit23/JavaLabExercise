@@ -1,6 +1,8 @@
 # JavaLabExercise
 การค้นหา File ใน github
 
+NOTES: ดู code เฉลย ได้ที่ Ch6 ReviewAdvOOP
+
 1. Folder ที่เรียบเรียงไฟล์แล้ว
 
      1.1. 00JavaProblem : เป็นโค้ดที่มาจากโจทย์ที่สร้างขึ้น/ติว (ดูโจทย์ได้ที่ wiki)
@@ -13,4 +15,6 @@
 
      2.1. Lab105 : คอมที่คณะ
   
-    2.2. INT105 หรือ MacProINT105 : คอมส่วนตัว
+     2.2. INT105 หรือ MacProINT105 : คอมส่วนตัว
+     
+3. ดูโจทย์และสรุปได้ที่ Wiki
