@@ -15,13 +15,13 @@ import sit.model.Student;
 public class StudentController { //จัดการเฉพาะ Student DB
     private Connection con;
     
+/*--------------------------StudentController----------------------------------*/
     public StudentController(String username, String psw) 
             throws ClassNotFoundException, SQLException{ //Constructor
         
         String url="jdbc:derby://localhost:1527/student";           
         con=ConnectionManager.createConnection(url, username, psw);
         System.out.println("Connection (1) created sucessfully");
-        
     }
     
     //Another ways to Connection by Properties (Overloading Constructor)
@@ -36,6 +36,8 @@ public class StudentController { //จัดการเฉพาะ Student DB
         con=ConnectionManager.createConnection(fileName);
         System.out.println("Connection (3) by Properties by File Succesfully");
     }
+    
+/*------------------------------Execute------------------------------------*/
     
     //Delete All Students
     public int deleteAllStudents() throws SQLException{
@@ -66,15 +68,15 @@ public class StudentController { //จัดการเฉพาะ Student DB
         return insertedRec;
     }
     
-    //Insert Student by File
+    //Insert Student by File    **ไม่จำเป้นต้องทำ 2 LOOP
     public int insertStudentBatch(File student) throws FileNotFoundException, SQLException{
         int insertedRec=0;
         String sq1;
             Scanner sc = new Scanner(student);
-            while(sc.hasNextLine()){   //Loop นับบรรทัด   โดยผูกกับไฟล์
+            while(sc.hasNextLine()){   //Loop บรรทัด   โดยผูกกับไฟล์
                 String line=sc.nextLine();
                 Scanner scStr=new Scanner(line);
-                while(scStr.hasNext()){         //Loop นับคำ โดยผูกกับString
+                while(scStr.hasNext()){         //Loop คำ โดยผูกกับString
                     int id=scStr.nextInt();
                     String firstname=scStr.next();
                     String lastname=scStr.next(); 
@@ -86,7 +88,7 @@ public class StudentController { //จัดการเฉพาะ Student DB
             }
         return insertedRec;
     }
-    
+        
     //Insert Student by ArrayList
     public int insertStudentBatch(ArrayList<Student> studentList) throws SQLException{
         int insertedRec=0;
@@ -98,8 +100,8 @@ public class StudentController { //จัดการเฉพาะ Student DB
             String lastname=studentList.get(i).getStdLastName();
             sq1="insert into student(stdId,firstname,lastname) "
                     + "values ("+id+", '"+firstname+"', '"+lastname+"')";
-                    Statement stmt=con.createStatement();
-                    insertedRec+=stmt.executeUpdate(sq1);
+            Statement stmt=con.createStatement();
+            insertedRec+=stmt.executeUpdate(sq1);
         }
         return insertedRec;
     }
@@ -164,6 +166,26 @@ public class StudentController { //จัดการเฉพาะ Student DB
         for(Student stu:stdList){
             System.out.println(stu);
         }
+    }
+    
+/*-----------------------------Execute By AjUmaporn----------------------------*/
+        //Insert Student from File (By AjUmaporn)
+    public int insertStudentFromFile(String filename) throws FileNotFoundException, SQLException{
+        int insertedRec=0;
+        String sq1;
+        Scanner sc = new Scanner(new File(filename));
+        //sc.useDelimiter(",");     //แบ่งคำโดยใช้ Delimiter
+        
+        while(sc.hasNext()){
+            int id=sc.nextInt();
+            String firstname=sc.next();
+            String lastname=sc.next();
+            System.out.println(id+" "+firstname+" "+lastname);
+            //ไปเรียก method insertStudent ที่เคยเขียนเอาไว้
+            insertedRec+=insertStudent(new Student(id,firstname,lastname));
+        }
+        
+        return insertedRec;
     }
 
     
