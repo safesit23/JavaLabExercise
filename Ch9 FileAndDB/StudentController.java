@@ -169,7 +169,7 @@ public class StudentController { //จัดการเฉพาะ Student DB
     }
     
 /*-----------------------------Execute By AjUmaporn----------------------------*/
-        //Insert Student from File (By AjUmaporn)
+    //Insert Student from File (By AjUmaporn)
     public int insertStudentFromFile(String filename) throws FileNotFoundException, SQLException{
         int insertedRec=0;
         String sq1;
@@ -186,6 +186,26 @@ public class StudentController { //จัดการเฉพาะ Student DB
         }
         
         return insertedRec;
+    }
+    
+    //select Student
+    public ArrayList<Student> selectStudent() throws SQLException{
+        Statement stmt=con.createStatement();
+        String sq1="SELECT * FROM STUDENT";
+        System.out.println(sq1);
+        ResultSet rs=stmt.executeQuery(sq1);
+        ArrayList<Student> stdList = new ArrayList<Student>();
+        // read column of each record in ResultSet
+        while(rs.next()){
+            //get datatype โดยระบุ column
+            int id = rs.getInt("STDID");   
+            String firstname=rs.getString("FIRSTNAME");
+            String lastname=rs.getString("LASTNAME");
+            //orm process
+            Student std=new Student(id,firstname,lastname); //1 Records
+            stdList.add(std);   //เก็บข้อมูลแต่ละออบเจ็กต์ลงไปในตัวแปรประเภท List
+        }
+        return stdList;
     }
 
     
