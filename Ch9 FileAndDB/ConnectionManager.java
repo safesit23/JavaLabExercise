@@ -28,7 +28,7 @@ public class ConnectionManager { //สำหรับ Database ใดๆก็�
     }
     
     //Another ways to Connection by Properties File
-    public static Connection createConnection(String fileName) throws FileNotFoundException, IOException{
+    public static Connection createConnection(String fileName) throws FileNotFoundException, IOException, SQLException{
         Properties props=new Properties();
         
         //ใช้ class File Reader
@@ -41,6 +41,15 @@ public class ConnectionManager { //สำหรับ Database ใดๆก็�
         String dbUser=props.getProperty("DB_USER");
         String dbPassword=props.getProperty("DB_PASSWORD");
         
+        //สร้าง Object =ชื่อ ds    ( เหมือน Scanner ds = new Scanner() )
+        org.apache.derby.jdbc.ClientDataSource ds= new org.apache.derby.jdbc.ClientDataSource();
+        ds.setServerName(serverName);
+        ds.setPortNumber(Integer.parseInt(serverPort));
+        ds.setDatabaseName(dbName);
+        ds.setUser(dbUser);
+        ds.setPassword(dbPassword);
+        Connection cn = ds.getConnection();
+        return cn;
     }
     
     
