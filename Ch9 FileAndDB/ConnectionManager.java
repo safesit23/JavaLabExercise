@@ -1,5 +1,8 @@
 package sit.db;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -23,6 +26,23 @@ public class ConnectionManager { //สำหรับ Database ใดๆก็�
         Connection cn=DriverManager.getConnection(url, props);
         return cn;
     }
+    
+    //Another ways to Connection by Properties File
+    public static Connection createConnection(String fileName) throws FileNotFoundException, IOException{
+        Properties props=new Properties();
+        
+        //ใช้ class File Reader
+        props.load(new FileReader(fileName));   //ผูก Class Properties กับ file
+        
+        //getProperty จะได้เป็น String ไม่จำเป็นต้องเรียง
+        String serverName=props.getProperty("SERVER_NAME"); //ให้ getProperty ตรงกับที่เราตั้งไว้(เรียกว่า KEY)
+        String serverPort=props.getProperty("SERVER_PORT");
+        String dbName=props.getProperty("DB_NAME");
+        String dbUser=props.getProperty("DB_USER");
+        String dbPassword=props.getProperty("DB_PASSWORD");
+        
+    }
+    
     
     //Close Connection
     public static void closeConnection(Connection cn) throws SQLException{
