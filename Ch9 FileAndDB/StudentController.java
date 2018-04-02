@@ -3,6 +3,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -170,6 +171,7 @@ public class StudentController { //จัดการเฉพาะ Student DB
     
 /*-----------------------------Execute By AjUmaporn----------------------------*/
     //Insert Student from File (By AjUmaporn)
+    /*
     public int insertStudentFromFile(String filename) throws FileNotFoundException, SQLException{
         int insertedRec=0;
         String sq1;
@@ -187,6 +189,34 @@ public class StudentController { //จัดการเฉพาะ Student DB
         
         return insertedRec;
     }
+    */
+    
+    //Insert Student from File (By AjUmaporn) use prepareStatement
+    public int insertStudentFromFile(String filename) throws FileNotFoundException, SQLException{
+        Scanner sc = new Scanner(new File(filename));
+        int insertedRec=0;
+        
+        //ทิ้งเครื่องหมาย ? แทนค่าที่จะมีการเปลี่ยน
+        String sq1="insert into student(stdId,firstname,lastname) "
+                    + "values (?,?,?)";
+        //เตรียม statement
+        PreparedStatement pStmt = con.prepareStatement(sq1);
+
+        while(sc.hasNext()){
+            int id=sc.nextInt();
+            String firstname=sc.next();
+            String lastname=sc.next();
+            System.out.println(id+" "+firstname+" "+lastname);
+            //แทนค่าลง ? โดยระบุ index
+            pStmt.setInt(1, id);
+            pStmt.setString(2, firstname);
+            pStmt.setString(3, lastname);
+            //ทำการ executeUpdate 
+            insertedRec+=pStmt.executeUpdate();
+        }
+        return insertedRec;
+    }
+    
     
     //select Student
     public ArrayList<Student> selectStudent() throws SQLException{
