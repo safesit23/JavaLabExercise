@@ -1,6 +1,7 @@
 package sit.controller;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -19,15 +20,21 @@ public class StudentController { //จัดการเฉพาะ Student DB
         
         String url="jdbc:derby://localhost:1527/student";           
         con=ConnectionManager.createConnection(url, username, psw);
-        System.out.println("Connection created sucessfully");
+        System.out.println("Connection (1) created sucessfully");
         
     }
     
-    ////Another ways to Connection by Properties (Overloading Constructor)
+    //Another ways to Connection by Properties (Overloading Constructor)
     public StudentController(Properties pro) throws SQLException{
         String url="jdbc:derby://localhost:1527/student";           
         con=ConnectionManager.createConnection(url, pro);
-        System.out.println("Connection created sucessfully");
+        System.out.println("Connection (2) created sucessfully");
+    }
+    
+    //Another ways to Connection by Properties by File (Overloading Constructor)
+    public StudentController(String fileName) throws SQLException, IOException{
+        con=ConnectionManager.createConnection(fileName);
+        System.out.println("Connection (3) by Properties by File Succesfully");
     }
     
     //Delete All Students
