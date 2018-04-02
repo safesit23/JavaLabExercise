@@ -30,7 +30,7 @@ public class StudentController { //จัดการเฉพาะ Student DB
         System.out.println("Connection created sucessfully");
     }
     
-    //Execution
+    //Delete All Students
     public int deleteAllStudents() throws SQLException{
         int deletedRecs=0;
         String sql="delete from student";
@@ -59,6 +59,7 @@ public class StudentController { //จัดการเฉพาะ Student DB
         return insertedRec;
     }
     
+    //Insert Student by File
     public int insertStudentBatch(File student) throws FileNotFoundException, SQLException{
         int insertedRec=0;
         String sq1;
@@ -79,6 +80,7 @@ public class StudentController { //จัดการเฉพาะ Student DB
         return insertedRec;
     }
     
+    //Insert Student by ArrayList
     public int insertStudentBatch(ArrayList<Student> studentList) throws SQLException{
         int insertedRec=0;
         int count=studentList.size();
@@ -95,6 +97,7 @@ public class StudentController { //จัดการเฉพาะ Student DB
         return insertedRec;
     }
     
+    //Update Student
     public int updateStudent(Student std) throws SQLException{
         int insertedRec=0;
         int id=std.getStdId();
@@ -108,7 +111,7 @@ public class StudentController { //จัดการเฉพาะ Student DB
         return insertedRec;
     }
     
-    
+    //Find Student by ID (USE ResultSet)
     public void findStudentById(int id) throws SQLException{
         ArrayList<Student> stdList = new ArrayList<Student>();
         String sql = "SELECT * FROM STUDENT WHERE STDID="+id; 
@@ -116,8 +119,8 @@ public class StudentController { //จัดการเฉพาะ Student DB
         System.out.println("SQL findById="+sql);    
         // เตรียมคำสั่ง SQL
         Statement stmt=con.createStatement();
+        //executQuery จะได้เป็น ResultSet ได้ออกมาเป็นตาราง
         ResultSet resultSet = stmt.executeQuery(sql);
- 
         // วนลูปดึงข้อมูลจนกว่าจะหมด
         while (resultSet.next()) {
         // กำหนดค่าให้ออบเจ็กต์โดยค่าที่ดึงมาจากตาราง Student
@@ -127,12 +130,12 @@ public class StudentController { //จัดการเฉพาะ Student DB
             Student std=new Student(tempid,firstname,lastname); //1 Records
             stdList.add(std);   //เก็บข้อมูลแต่ละออบเจ็กต์ลงไปในตัวแปรประเภท List
             }
- 
         for(Student stu:stdList){
             System.out.println(stu);
         }
     }
     
+    //Find Student by ID (USE ResultSet)
     public void findStudentByname(String name) throws SQLException{
         ArrayList<Student> stdList = new ArrayList<Student>();
         String sql = "SELECT * FROM STUDENT WHERE FIRSTNAME='"+name+"'"; 
@@ -140,18 +143,17 @@ public class StudentController { //จัดการเฉพาะ Student DB
         System.out.println("SQL findByName="+sql);        
         // เตรียมคำสั่ง SQL
         Statement stmt=con.createStatement();
+        //executQuery จะได้เป็น ResultSet ได้ออกมาเป็นตาราง
         ResultSet resultSet = stmt.executeQuery(sql);
- 
         // วนลูปดึงข้อมูลจนกว่าจะหมด
         while (resultSet.next()) {
             // กำหนดค่าให้ออบเจ็กต์โดยค่าที่ดึงมาจากตาราง Student
             int tempid=resultSet.getInt("STDID");
             String firstname=resultSet.getString("FIRSTNAME");
-             String lastname=resultSet.getString("LASTNAME");
+            String lastname=resultSet.getString("LASTNAME");
             Student std=new Student(tempid,firstname,lastname); //1 Records
             stdList.add(std);   //เก็บข้อมูลแต่ละออบเจ็กต์ลงไปในตัวแปรประเภท List
             }
- 
         for(Student stu:stdList){
             System.out.println(stu);
         }
