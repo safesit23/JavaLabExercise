@@ -13,6 +13,7 @@ public class TestStudentDB {
     public static void main(String[] args){
         int rec;
         try{
+ /*------------------------Create Connection-------------------------------------*/
             //Connection1
             //StudentController stdCtrl = new StudentController("sit","sit");
             
@@ -28,6 +29,7 @@ public class TestStudentDB {
             String file="dpProperties.txt";
             StudentController stdCtrl = new StudentController(file);
             
+ /*------------------------------Execute-----------------------------------*/
             //deleteAllStudents
             /*
             rec=stdCtrl.deleteAllStudents();
@@ -59,6 +61,12 @@ public class TestStudentDB {
             System.out.println("inserted "+rec+" record");
             */
             
+            //Insert Student from File (By AjUmaporn)
+            /*
+            rec=stdCtrl.insertStudentFromFile("StudentList.txt");
+            System.out.println("inserted "+rec+" record");
+            */
+            
             //insertStudentBatch(ArrayList)
             /*ArrayList<Student> stdList = new ArrayList<Student>();
             stdList.add(new Student(201,"AA","aaa"));
@@ -68,6 +76,12 @@ public class TestStudentDB {
             rec=stdCtrl.insertStudentBatch(stdList);
             System.out.println("inserted "+rec+" record");
             */
+            
+            //selectStudent by Aj.Umaporn
+            ArrayList<Student> stdList = stdCtrl.selectStudent();
+            for(int i=0;i<stdList.size();i++){
+                System.out.println(stdList.get(i));
+            }
             
         }
         /*
