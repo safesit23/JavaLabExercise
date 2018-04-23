@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package browsertabproject;
 
 import int105.model.Browser;
@@ -14,17 +9,30 @@ public class TinyBrowser {
         Tab t1 = new Tab("www.sit.kmutt.ac.th");
         browser.newTab(t1);
         
-        Tab t2 = new Tab("www.kmutt.ac.th");
+        Tab t2 = new Tab("www.facebook.com");
         browser.newTab(t2);
         System.out.println("Output #01\n" + browser);
-        
         browser.setActiveTabIndex(0);           //เปลี่ยน default 0 ให้เป็น ActiveTab
-        Tab currentTab = browser.getActiveTab();
-        currentTab.setUrl("www.kmutt.ac.th");
+        Tab currentTab = browser.getActiveTab();    //ดึง Tab นั้นออกมาจาก Array
+        currentTab.setUrl("www.kmutt.ac.th");   //แก้ไข url
         //อีกวิธี
         browser.setActiveTabIndex(0);           //เปลี่ยน default 0 ให้เป็น ActiveTab
         browser.getActiveTab().setUrl("www.kmutt.ac.th");   //เข้าไปแก้ Url ของ ActiveTab
-
+        
+        System.out.println("----------------");
         System.out.println("Output #02\n" + browser);
+        
+        //ต้องการ Page Content ที่ active
+        System.out.println("----------------");
+        Tab content = browser.getActiveTab();
+        System.out.println("ActiveTab\n"+content.getPageContent());
+        
+        //ต้องการ url ของ Tab แรก
+        System.out.println("----------------");
+        System.out.println("First Tab\n"+browser.getFirstTab().getUrl());
+        
+        //ต้องการ url ของ Tab สุดท้าย
+        System.out.println("----------------");
+        System.out.println("Last Tab\n"+browser.getLastTab().getUrl());
     }
 }
