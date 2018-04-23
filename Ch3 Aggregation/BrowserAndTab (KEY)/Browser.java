@@ -9,15 +9,15 @@ public class Browser {
     public Browser(int maximumTab) {
         this.tabs = new Tab[maximumTab + 1];
         this.tabs[0] = new Tab("Default");  //Tabs 0 เป็น Default
-        this.activeTabPosition = 0;
-        this.numOfTab = 1;
+        this.activeTabPosition = 0; // ที่เปิดอยู่คือ Tabs 0
+        this.numOfTab = 1; // มี Tab เปิดอยู่ 1 Tab
     }
 
     public int newTab(Tab tab) {
-        if(numOfTab<tabs.length){
-            this.tabs[numOfTab]=tab;
-            setActiveTabIndex(numOfTab);
-            numOfTab++; //จำนวน Tabs ที่เปิดอยู่จริง
+        if(numOfTab<getMaximumNoOfTab()){
+            this.tabs[numOfTab]=tab;    //set tab ใน array tab
+            setActiveTabIndex(numOfTab); // ให้ active tab เป็น tab ปัจจุบันที่พึ่งเปิด
+            numOfTab++; //นับจำนวน tab เช่นเดิมมี 2 Tab พอเปิดเพิ่มจะมี 3 tab
             return numOfTab;
         }else{
             return -1;
@@ -57,5 +57,15 @@ public class Browser {
                 + this.tabs[activeTabPosition].toString();
         return output;
     }
+    
+    public Tab getFirstTab(){
+        return this.tabs[0];
+    }
+    
+    public Tab getLastTab(){
+        return this.tabs[numOfTab-1];
+    }
+    
+    
 
 }
