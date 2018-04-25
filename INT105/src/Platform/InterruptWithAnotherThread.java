@@ -16,8 +16,7 @@ public class InterruptWithAnotherThread{
                           message);
     }
 
-    private static class MessageLoop
-        implements Runnable {
+    private static class MessageLoop implements Runnable {
         public void run() {
             try {
                 int i=0;
