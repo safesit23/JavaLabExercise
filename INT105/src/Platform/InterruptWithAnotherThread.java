@@ -16,14 +16,14 @@ public class InterruptWithAnotherThread{
                           message);
     }
 
-    private static class MessageLoop implements Runnable {
+    private static class NumberLoop implements Runnable {
         public void run() {
+            int i=0;
             try {
-                int i=0;
                 while(true){
-                    threadMessage(""+i);
-                    i++;
+                    threadMessage(Integer.toString(i));
                     Thread.sleep(1000);
+                    i++;
                 }
                
             } catch (InterruptedException e) {
@@ -35,13 +35,12 @@ public class InterruptWithAnotherThread{
 
     public static void main(String args[]) throws InterruptedException {
         threadMessage("-------------START-------------");
-        long startTime = System.currentTimeMillis();
-        Thread t = new Thread(new MessageLoop());   //Object t
+        Thread t = new Thread(new NumberLoop());   //Object t
         t.start(); //เริ่มการทำงาน
-        Scanner input = new Scanner(System.in);
+        System.in.read();   //รับค่ามา
         input.nextLine(); //รอการพิมพ์เพื่อรันต่อ
         t.interrupt();    //Interrupt t
-        t.join();
+        t.join();           //รอให้จบการทำงานจริงๆ
         threadMessage("BYE BYE!");
     }
 }
