@@ -37,8 +37,7 @@ public class InterruptWithAnotherThread{
         threadMessage("-------------START-------------");
         Thread t = new Thread(new NumberLoop());   //Object t
         t.start(); //เริ่มการทำงาน
-        System.in.read();   //รับค่ามา
-        input.nextLine(); //รอการพิมพ์เพื่อรันต่อ
+        System.in.read();   //รอรับค่ามา
         t.interrupt();    //Interrupt t
         t.join();           //รอให้จบการทำงานจริงๆ
         threadMessage("BYE BYE!");
