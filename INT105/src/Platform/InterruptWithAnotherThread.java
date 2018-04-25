@@ -1,3 +1,9 @@
+/*เขียนโปรแกรมโดยให้มี 
+Threads 1 - แสดงตัวเลขไปเรื่อยๆ
+Threads 2 - รอรับข้อความ 
+เมื่อรับแล้วThread 1 จะหยุดการทำงานทันที
+*/
+
 import java.util.Scanner;
 
 public class InterruptWithAnotherThread{
