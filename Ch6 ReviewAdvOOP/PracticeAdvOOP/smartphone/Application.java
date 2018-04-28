@@ -19,19 +19,7 @@ public class Application extends Item{
         this.icon = icon;
     }
     
-    @Override
-    public boolean equals(Object obj){
-        Application temp=null;
-        if(obj !=null && obj instanceof Application){
-            temp = (Application) obj;
-            if(super.getName().equals(temp.getName())){
-                if(icon.equals(temp.getIcon())){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
+    
     
     @Override
     public String toString() {
