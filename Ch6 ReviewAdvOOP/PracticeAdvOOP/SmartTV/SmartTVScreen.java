@@ -31,7 +31,7 @@ public class SmartTVScreen {
                     cursor.increaseRow();
                     break;
 //3.	ปรับปรุง Method main ของ Class SmartTVScreen เมื่อเลือกปุ่มใด ๆ สามารถแสดงผลลัพธ์จากเมดธอด toString() ของ application ที่อยู่ ณ ตำแหน่งของ Cursor ได้ 
-                default: System.out.println(grid[cursor.getRow()].getApps()[cursor.getColumn()].toString());
+                default: 
             }
 
         } while (getKey != 'q');
