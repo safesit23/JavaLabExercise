@@ -3,7 +3,7 @@ package smarttvscreen;
 public class HorizontalGrid {
 
     private String name;
-    private Application[] apps; //hint1
+ //hint1
     private int focusIdx, insertedApps , numOfApps;
 
     public HorizontalGrid(String name, int i) {
