@@ -15,7 +15,8 @@ public class TestStudentGradeGui {
         myGrade[3]= new StudentGrade("GEN111",3,"A");
         myGrade[4]= new StudentGrade("LNG103",3,"A");
         myGrade[5]= new StudentGrade("MTH111",3,"A");
-        StudentGradeView sgv = new StudentGradeView(6,myGrade);
+        //StudentGradeView sgv1 = new StudentGradeView1(6,myGrade);
+        StudentGradeView2 sgv2 = new StudentGradeView2(6,myGrade);
     }
     
 }
