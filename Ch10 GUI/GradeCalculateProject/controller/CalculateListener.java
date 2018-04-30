@@ -1,6 +1,7 @@
 package controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DecimalFormat;
 import javax.swing.JTextField;
 //ตัวดักฟัง (Listener)
 public class CalculateListener implements ActionListener{
@@ -20,7 +21,7 @@ public class CalculateListener implements ActionListener{
         /*//แสดงว่าปุ่มไหนถูกกด
         System.out.println(e.getActionCommand());
         */
-        
+        DecimalFormat df = new DecimalFormat("0.00");
         float gpa=0;
         float totalCredit=0;
         float totalGrade=0;
@@ -31,7 +32,7 @@ public class CalculateListener implements ActionListener{
             totalCredit+=credit;
         }
         gpa=totalGrade/totalCredit;
-        txtGPA.setText(gpa+"");
+        txtGPA.setText(df.format(gpa)+"");
     }
     
     public float convertLetterGradeToNumber(String grade){
