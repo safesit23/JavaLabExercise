@@ -1,5 +1,6 @@
 package view;
 
+import controller.CalculateListener;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,6 +15,7 @@ public class StudentGradeView {
     private JTextField txtCredit[];
     private JButton btnCalculate;
     private StudentGrade[] stdGrade;
+    private JTextField txtGPA;
 
     public StudentGradeView(int numOfSubjects,StudentGrade[] myGrade) {
         //create array of Labels and TextFields
@@ -36,7 +38,17 @@ public class StudentGradeView {
         frameGrade.setLayout(grid);
         addSubjectToFrame();
         
+        //--------------------------------------------
+        frameGrade.add(new JLabel("GPA"));
+        
+        txtGPA=new JTextField("0.00");
+        frameGrade.add(txtGPA);
+        
         btnCalculate=new JButton("Calculate");
+        //ส่งข้อมูลใน text ให้ Listener
+        CalculateListener c1 = new CalculateListener(txtGrade, txtCredit, txtGPA);
+        //นำปุ่มไปผูกกับ addActionListener
+        btnCalculate.addActionListener(c1);
         frameGrade.add(btnCalculate);
         
         frameGrade.pack();
