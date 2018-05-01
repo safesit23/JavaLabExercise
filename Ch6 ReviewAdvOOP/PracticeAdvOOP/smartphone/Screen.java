@@ -14,11 +14,19 @@ public class Screen {
     }
     
     public boolean addItem(Item obj){
-
-        
-        
-        
-        
+        int size =1;
+        if(obj !=null && obj instanceof Widget){
+            Widget wg= (Widget) obj;
+            size=wg.getnGrid();
+        }
+        if(this.gridCount+size<=24){
+            this.items[itemCount]=obj;
+            this.itemCount++;
+            this.gridCount=this.gridCount+size;
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public Item[] getItems() {
