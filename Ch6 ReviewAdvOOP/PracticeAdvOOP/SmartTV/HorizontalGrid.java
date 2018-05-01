@@ -3,15 +3,24 @@ package smarttvscreen;
 public class HorizontalGrid {
 
     private String name;
- //hint1
+    private Application[] apps; //hint1
     private int focusIdx, insertedApps , numOfApps;
 
     public HorizontalGrid(String name, int i) {
-
+        this.apps = new Application[i]; // hint 2 
+        this.name = name;
+        this.numOfApps = i;
+        this.insertedApps=0;
     }
 
     public boolean addApp(Application app){    // hint 3
-
+        if(insertedApps<apps.length){
+            this.apps[insertedApps]=app;
+            this.insertedApps++;
+            return true;
+        }else{
+            return false;
+        }
     }
 
     public Application[] getApps() {
