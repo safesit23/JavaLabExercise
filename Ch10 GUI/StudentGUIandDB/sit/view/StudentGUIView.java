@@ -13,6 +13,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import sit.controller.ButtonListener;
 import sit.controller.StudentController;
 import sit.controller.StudentSelectionListener;
 import sit.model.Student;
@@ -58,10 +59,21 @@ public class StudentGUIView {
         txtStdLastName=new JTextField();
         jpnStudentRecord.add(txtStdLastName);
         
+        //BUTTON
         jpnButton=new JPanel();
         btnSave=new JButton("Save");
         btnSaveAs=new JButton("Save As Object");
         btnReset=new JButton("Reset");
+        
+        /*ACTION LISTENER*/
+        ButtonListener btnListener = new ButtonListener(txtStdId, txtStdFirstName,txtStdLastName);
+        //เมื่อปุ่มถูกกดจะไปเรียกที่ ButtonListener
+        btnSave.addActionListener(btnListener);
+        btnSaveAs.addActionListener(btnListener);
+        btnReset.addActionListener(btnListener);
+        /* /ACTION LISTENER*/
+        
+        //Add Button to JPanel
         jpnButton.add(btnSave);
         jpnButton.add(btnSaveAs);
         jpnButton.add(btnReset);

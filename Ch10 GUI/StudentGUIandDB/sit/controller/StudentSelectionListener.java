@@ -38,5 +38,3 @@ public class StudentSelectionListener implements ListSelectionListener{
         txtStdLastName.setText(stdLastName);
     }
 }
-    
-
