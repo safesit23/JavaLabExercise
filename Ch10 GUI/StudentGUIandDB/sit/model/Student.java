@@ -7,10 +7,6 @@ package sit.model;
 
 import java.io.Serializable;
 
-/**
- *
- * @author INT105
- */
 public class Student implements Serializable {
     private transient int stdId;
     private String firstname;

@@ -6,7 +6,9 @@ import java.io.DataOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import javax.swing.JTextField;
+import sit.model.Student;
 
 public class ButtonListener implements ActionListener{
     private JTextField txtStdId;
@@ -29,7 +31,7 @@ public class ButtonListener implements ActionListener{
         }else if(btnCommand.equalsIgnoreCase("Save")){
             save();
         }else if(btnCommand.equalsIgnoreCase("Save As Object")){
-            System.out.println("SAVE AS");
+            saveAs();
         }
     }
     
@@ -41,6 +43,30 @@ public class ButtonListener implements ActionListener{
     }
     
     //data OutputStream
+    public void saveAs(){
+        try{
+            FileOutputStream fos=new FileOutputStream("student-object.dat");
+            ObjectOutputStream oos=new ObjectOutputStream(fos);
+            
+            //get from text field
+            int stdId= Integer.parseInt(txtStdId.getText());    //change id from String to Int by parseInt
+            String stdFirstName = txtStdFirstName.getText();
+            String stdLastName = txtStdLastName.getText();
+            //field--->object
+            Student std=new Student(stdId,stdFirstName,stdLastName);
+            //write object
+            oos.writeObject(std);
+            //close stream
+            oos.close();
+        }
+        catch(FileNotFoundException fnf){
+            System.out.println(fnf);
+        }catch (IOException ex) {
+            System.out.println(ex);
+        }
+        
+    }
+    
     public void save(){
         try{
             FileOutputStream fos=new FileOutputStream("student.dat",true);
@@ -58,10 +84,6 @@ public class ButtonListener implements ActionListener{
         }catch (IOException ex) {
             System.out.println(ex);
         }
-        
-    }
-    
-    public void saveAsObject(){
         
     }
     

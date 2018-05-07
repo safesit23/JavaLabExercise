@@ -1,28 +1,28 @@
 package sit.view;
 
-import java.io.DataInputStream;
 import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
-public class TestStream {
+public class TestObjectStream {
     public static void main(String[] args) {
         FileInputStream fis=null;
-        DataInputStream dis=null;
+        ObjectInputStream ois=null;
         try{
-            fis = new FileInputStream("student.dat");
-            dis = new DataInputStream(fis);
+            fis = new FileInputStream("student-object.dat");
+            ois = new ObjectInputStream(fis);
             while(true){
-                int stdId = dis.readInt();
-                String stdFirstName=dis.readUTF();
-                String stdLastName=dis.readUTF();
-                System.out.println(stdId+", "+stdFirstName+", "+stdLastName);
+                Object std=ois.readObject();
+                System.out.println(std);
             }
         //EOF เป็นลูกของ IO
         } catch(EOFException eof){
             try{
-                dis.close();
+                ois.close();
             }catch(IOException ex){
                 System.out.println(ex);
             }
@@ -30,6 +30,8 @@ public class TestStream {
             System.out.println(fnf);
         } catch (IOException ex) {
             System.out.println(ex);
+        } catch (ClassNotFoundException ex) {
+            System.out.println(ex);;
         }
     }
 }
