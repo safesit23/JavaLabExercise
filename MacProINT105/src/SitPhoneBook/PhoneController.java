@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class PhoneController {
     private Connection con;
@@ -28,9 +29,20 @@ public class PhoneController {
     }
     
     public void findPhoneNumber(String nickName) throws SQLException{
+        ArrayList<PhoneBook> arrBook = new ArrayList<PhoneBook>();
         Statement stmt = con.createStatement();
         String sql = "SELECT * FROM food WHERE nickname LIKE '"+nickName+"%'";
         ResultSet rs = stmt.executeQuery(sql);
+        while(rs.next()){
+            String phone = rs.getString("telephone");
+            String nickname = rs.getString("nickname");
+            int gen = rs.getInt("gen");
+            PhoneBook pb = new PhoneBook(phone,nickname,gen);
+            arrBook.add(pb);
+        }
+        for(PhoneBook show:arrBook){
+            System.out.println(show);
+        }
     }
     
 }
