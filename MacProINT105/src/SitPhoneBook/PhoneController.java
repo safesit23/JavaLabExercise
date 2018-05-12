@@ -31,7 +31,7 @@ public class PhoneController {
     public void findPhoneNumber(String nickName) throws SQLException{
         ArrayList<PhoneBook> arrBook = new ArrayList<PhoneBook>();
         Statement stmt = con.createStatement();
-        String sql = "SELECT * FROM food WHERE nickname LIKE '"+nickName+"%'";
+        String sql = "SELECT * FROM phonebook WHERE nickname LIKE '"+nickName+"%'";
         ResultSet rs = stmt.executeQuery(sql);
         while(rs.next()){
             String phone = rs.getString("telephone");
