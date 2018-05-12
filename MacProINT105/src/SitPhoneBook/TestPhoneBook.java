@@ -31,7 +31,8 @@ public class TestPhoneBook {
                 System.out.print("(1)Add (2)Search\nEnter Function: ");
                 func=input.nextInt(); 
             }
-            
+            pCon.CloseConnection();
+            System.out.println("-----GOOD BYE----");
             
             
             
