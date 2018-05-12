@@ -17,7 +17,7 @@ public class TestPhoneBook {
                     String phoneNum = input.next();
                     System.out.print("Enter nickname: ");
                     String nickName = input.next();
-                    System.out.println("Enter Gen: ");
+                    System.out.print("Enter Gen: ");
                     int gen=input.nextInt();
                     int rec = pCon.addPhoneNumber(phoneNum, nickName, gen);
                     System.out.println("Inserted "+rec+" records\n");
@@ -33,9 +33,7 @@ public class TestPhoneBook {
             }
             pCon.CloseConnection();
             System.out.println("-----GOOD BYE----");
-            
-            
-            
+   
         } 
         catch (SQLException ex) {
             System.out.println(ex);
