@@ -1,5 +1,6 @@
 package GUIComponent;
 
+import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -7,8 +8,12 @@ import javax.swing.JPanel;
 public class LayoutManagerTest {
     public static void main(String[] args) {
         /*---//FlowLayout---*/
-        JFrame frame = new JFrame("FlowLayout");
+        JFrame frame = new JFrame("GridLayout");
         JPanel panel = new JPanel();
+        
+        //--------GridLayout------
+        panel.setLayout(new GridLayout(3,2));
+        
         JButton button1 = new JButton("Button 1");
         JButton button2 = new JButton("Button 2");
         JButton button3 = new JButton("Button 3");
