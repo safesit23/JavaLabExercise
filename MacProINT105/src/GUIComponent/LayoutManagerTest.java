@@ -25,14 +25,13 @@ public class LayoutManagerTest {
         JButton button4 = new JButton("Button 4");
         JButton button5 = new JButton("Button 5");
         
-        /* 
+        
         //add comp (Normal)
-        panel.add(button1);
-        panel.add(button2);
-        panel.add(button3);
-        panel.add(button4);
-        panel.add(button5);
-        */
+//        panel.add(button1);
+//        panel.add(button2);
+//        panel.add(button3);
+//        panel.add(button4);
+//        panel.add(button5);
         
         /*---//BorderLayout---*/
         panel.add(button1, BorderLayout.NORTH);
