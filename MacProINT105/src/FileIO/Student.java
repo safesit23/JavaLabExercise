@@ -3,6 +3,10 @@ public class Student {
     private int stdId;
     private String name;
 
+    public Student() {
+    }
+
+    
     public Student(int stdId, String name) {
         this.stdId = stdId;
         this.name = name;
