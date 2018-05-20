@@ -5,6 +5,7 @@ import javax.swing.JFrame;
 public class FrameTest {
     public static void main(String[] args) {
         JFrame frame = new JFrame("FrameTest");
+        //ADD COMPONENT HERE
         frame.setSize(400,400);
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
