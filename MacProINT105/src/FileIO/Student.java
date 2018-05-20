@@ -1,5 +1,8 @@
 package FileIO;
-public class Student {
+
+import java.io.Serializable;
+
+public class Student implements Serializable{
     private int stdId;
     private String name;
 
