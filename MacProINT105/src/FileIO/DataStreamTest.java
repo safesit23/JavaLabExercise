@@ -26,8 +26,8 @@ public class DataStreamTest {
             /*---------File I/O---------*/
             
             //-------------Write to file----------------------
-            System.out.println("START WRITE FILE TO OBJECT");
-            FileOutputStream fileOut = new FileOutputStream("datafile.dat");
+            System.out.println("START WRITE FILE TO DATA");
+            FileOutputStream fileOut = new FileOutputStream("datafile.dat",true);
             DataOutputStream dataOut = new DataOutputStream(fileOut);
             dataOut.writeInt(idInput);
             dataOut.writeUTF(nameInput);
