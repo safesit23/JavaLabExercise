@@ -2,6 +2,7 @@ package AddressBook;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -9,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class ContactView {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
         JFrame frame = new JFrame("Contact");
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
