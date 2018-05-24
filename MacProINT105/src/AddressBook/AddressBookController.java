@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -20,7 +22,6 @@ public class AddressBookController {
     
     
     public void createConnection(String url,String username,String psw) throws SQLException{
-        contactList = new ArrayList<Contact>();
         con=DriverManager.getConnection(url, psw, psw);
         System.out.println("AddressBook connect successfully!");
     }
@@ -52,7 +53,41 @@ public class AddressBookController {
         } finally{
             System.out.println("Show result: "+result);
         }
-        
-        
     }
+    
+    public Contact searchData(String name) throws SQLException{
+        currContactIndex=0;
+        Statement stmt = con.createStatement();
+        String sql = "select * from contact where firstname like '%"+name+"%' or lastname like '%"+name+"%'";
+        ResultSet rs = stmt.executeQuery(sql);
+        contactList = new ArrayList<Contact>();
+        while(rs.next()){
+            int id = rs.getInt("id");
+            String fname = rs.getString("firstname");
+            String lname = rs.getString("lastname");
+            String phone = rs.getString("phone");
+            Contact ct = new Contact(id,fname,lname,phone);
+            contactList.add(ct);
+        }
+        return contactList.get(0);
+    }
+    
+    public Contact leftIndex(){
+        currContactIndex--;
+        return contactList.get(currContactIndex);
+    }
+    
+    public Contact rightIndex(){
+        currContactIndex++;
+        return contactList.get(currContactIndex);
+    }
+    
+    public int getIndex(){
+        return currContactIndex;
+    }
+    
+    public int getArrSize(){
+        return contactList.size();
+    }
+    
 }
