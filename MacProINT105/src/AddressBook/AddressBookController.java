@@ -57,10 +57,10 @@ public class AddressBookController {
     
     public Contact searchData(String name) throws SQLException{
         currContactIndex=0;
+        contactList = new ArrayList<Contact>();
         Statement stmt = con.createStatement();
         String sql = "select * from contact where firstname like '%"+name+"%' or lastname like '%"+name+"%'";
         ResultSet rs = stmt.executeQuery(sql);
-        contactList = new ArrayList<Contact>();
         while(rs.next()){
             int id = rs.getInt("id");
             String fname = rs.getString("firstname");
@@ -69,7 +69,11 @@ public class AddressBookController {
             Contact ct = new Contact(id,fname,lname,phone);
             contactList.add(ct);
         }
-        return contactList.get(0);
+        if(contactList.size()==0){
+            return null;
+        }else{
+            return contactList.get(currContactIndex);
+        }
     }
     
     public Contact leftIndex(){
