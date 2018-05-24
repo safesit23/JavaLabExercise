@@ -2,8 +2,11 @@ package AddressBook;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class ContactView {
     public static void main(String[] args) {
@@ -15,11 +18,41 @@ public class ContactView {
         JPanel panelSouth = new JPanel();
         panelCenter.setLayout(new GridLayout(4,2));
         
+        JTextField textSearch = new JTextField("Enter the name");
+        JButton buttonSearch = new JButton("Search");
+        JButton buttonImport = new JButton("Import from file to DB..");
         
+        JLabel labelId = new JLabel("ID:");
+        JTextField textId = new JTextField("");
+        JLabel labelFirstName = new JLabel("FirstName:");
+        JTextField textFirstName = new JTextField("");
+        JLabel labelLastName = new JLabel("LastName: ");
+        JTextField textLastName = new JTextField("");
+        JLabel labelPhone = new JLabel("Phone: ");
+        JTextField textPhone = new JTextField("");
         
-        panel.add(panelNorth);
-        panel.add(panelCenter);
-        panel.add(panelSouth);
+        JButton buttonLeft = new JButton("<");
+        JButton buttonRight = new JButton(">");
+        
+        panelNorth.add(textSearch);
+        panelNorth.add(buttonSearch);
+        panelNorth.add(buttonImport);
+        
+        panelCenter.add(labelId);
+        panelCenter.add(textId);
+        panelCenter.add(labelFirstName);
+        panelCenter.add(textFirstName);
+        panelCenter.add(labelLastName);
+        panelCenter.add(textLastName);
+        panelCenter.add(labelPhone);
+        panelCenter.add(textPhone);
+        
+        panelSouth.add(buttonLeft);
+        panelSouth.add(buttonRight);
+        
+        panel.add(panelNorth, BorderLayout.NORTH);
+        panel.add(panelCenter, BorderLayout.CENTER);
+        panel.add(panelSouth, BorderLayout.SOUTH);
         frame.add(panel);
         
         frame.setSize(400, 300);
