@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -28,7 +29,8 @@ public class AddressBookController {
         con.close();
     }
     
-    public void importData() {
+    public void importData() throws SQLException {
+        int result=0;
         try {
             Scanner input = new Scanner(new File("addressData.csv"));
             while(input.useDelimiter(",").hasNext()){
@@ -37,10 +39,18 @@ public class AddressBookController {
                 String lastName = input.next();
                 String phone = input.next();
                 System.out.println("SHOW : "+id+" "+firstName+" "+lastName+" "+" "+phone);
-                String sql = "insert into contact(id,firstname,lastname,phone)";
+                String sql = "insert into contact(id,firstname,lastname,phone) values(?,?,?,?)";
+                PreparedStatement pstmt = con.prepareStatement(sql);
+                pstmt.setInt(1, id);
+                pstmt.setString(2, firstName);
+                pstmt.setString(3, lastName);
+                pstmt.setString(4, phone);
+                result+=pstmt.executeUpdate();
             }
         } catch (FileNotFoundException ex) {
             System.out.println(ex);
+        } finally{
+            System.out.println("Show result: "+result);
         }
         
         
