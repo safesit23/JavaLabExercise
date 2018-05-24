@@ -58,7 +58,8 @@ public class ContactView {
         buttonSearch.addActionListener(sBtnListener);
         buttonLeft.addActionListener(sBtnListener);
         buttonRight.addActionListener(sBtnListener);
-        
+        buttonLeft.setEnabled(false);
+        buttonRight.setEnabled(false);
         
         panel.add(panelNorth, BorderLayout.NORTH);
         panel.add(panelCenter, BorderLayout.CENTER);
