@@ -30,19 +30,27 @@ public class SearchButtonListener implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         try{
-            System.out.println(e.getActionCommand());
+            //System.out.println(e.getActionCommand());
             if(e.getActionCommand().equals("Search")){
                 textId.setText("");
                 textFirstName.setText("");
                 textLastName.setText("");
                 textPhone.setText(" ");
                 Contact contact = addBook.searchData(textSearch.getText());
-                textId.setText(Integer.toString(contact.getId()));
-                textFirstName.setText(contact.getFirstName());
-                textLastName.setText(contact.getLastName());
-                textPhone.setText(contact.getPhone());
-                buttonLeft.setVisible(false);
-                buttonRight.setVisible(true);
+                if(contact!=null){
+                    textId.setText(Integer.toString(contact.getId()));
+                    textFirstName.setText(contact.getFirstName());
+                    textLastName.setText(contact.getLastName());
+                    textPhone.setText(contact.getPhone());
+                    buttonLeft.setEnabled(false);
+                    buttonRight.setEnabled(true);
+                    if(addBook.getIndex()==addBook.getArrSize()-1){
+                        buttonRight.setEnabled(false);
+                    }
+                }else{
+                    
+                }
+                
             }else if(e.getActionCommand().equals("<")){
                 Contact contact = addBook.leftIndex();
                 textId.setText(Integer.toString(contact.getId()));
@@ -50,11 +58,11 @@ public class SearchButtonListener implements ActionListener{
                 textLastName.setText(contact.getLastName());
                 textPhone.setText(contact.getPhone());
                 if(addBook.getIndex()==0){
-                    buttonLeft.setVisible(false);
-                    buttonRight.setVisible(true);
+                    buttonLeft.setEnabled(false);
+                    buttonRight.setEnabled(true);
                 }else{
-                    buttonLeft.setVisible(true);
-                    buttonRight.setVisible(true);
+                    buttonLeft.setEnabled(true);
+                    buttonRight.setEnabled(true);
                 }
             }else if(e.getActionCommand().equals(">")){
                 Contact contact = addBook.rightIndex();
@@ -62,12 +70,12 @@ public class SearchButtonListener implements ActionListener{
                 textFirstName.setText(contact.getFirstName());
                 textLastName.setText(contact.getLastName());
                 textPhone.setText(contact.getPhone());
-                if(addBook.getIndex()==addBook.getArrSize()){
-                    buttonLeft.setVisible(true);
-                    buttonRight.setVisible(false);
+                if(addBook.getIndex()==addBook.getArrSize()-1){
+                    buttonLeft.setEnabled(true);
+                    buttonRight.setEnabled(false);
                 }else{
-                    buttonLeft.setVisible(true);
-                    buttonRight.setVisible(true);
+                    buttonLeft.setEnabled(true);
+                    buttonRight.setEnabled(true);
                 }
             }
         } catch (SQLException ex) {
