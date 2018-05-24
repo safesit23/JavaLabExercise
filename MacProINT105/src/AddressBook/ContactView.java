@@ -50,6 +50,15 @@ public class ContactView {
         panelSouth.add(buttonLeft);
         panelSouth.add(buttonRight);
         
+        ImportButtonListener imBtnListener = new ImportButtonListener();
+        buttonImport.addActionListener(imBtnListener);
+        
+        SearchButtonListener sBtnListener = new SearchButtonListener(textSearch, textId, textFirstName, textLastName, textPhone, buttonLeft, buttonRight);
+        buttonSearch.addActionListener(sBtnListener);
+        buttonLeft.addActionListener(sBtnListener);
+        buttonRight.addActionListener(sBtnListener);
+        
+        
         panel.add(panelNorth, BorderLayout.NORTH);
         panel.add(panelCenter, BorderLayout.CENTER);
         panel.add(panelSouth, BorderLayout.SOUTH);
