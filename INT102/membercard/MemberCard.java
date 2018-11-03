@@ -33,7 +33,7 @@ public class MemberCard {
     }
     
     public int redeem(){
-        if(totalPoints>=POINTS2CASH100){
+        if(getRemainingPoints()>=POINTS2CASH100){
             usagePoints=usagePoints+POINTS2CASH100;
             numberOfRedeem=numberOfRedeem+1;
             return 100;
@@ -43,7 +43,7 @@ public class MemberCard {
     }
     
     
-    public int getRemainingPointing(){
+    public int getRemainingPoints(){
         return totalPoints-usagePoints;
     }
     
@@ -73,7 +73,7 @@ public class MemberCard {
     public String toString() {
         return "MemberCard{" + "memberId=" + memberId + ", totalPurchaseAmount=" + totalPurchaseAmount + 
                 ", totalPoints=" + totalPoints + "\n, numberOfRedeem=" + numberOfRedeem + ", usagePoints=" + usagePoints +
-                ",remaingPoints = "+getRemainingPointing()+'}';
+                ",remaingPoints = "+getRemainingPoints()+'}';
     }
     
     
