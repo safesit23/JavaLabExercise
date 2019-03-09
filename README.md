@@ -1,5 +1,44 @@
 # JavaLabExercise
-การค้นหา File ใน github
+
+## Structure
+```
+DataStucExercise/
+├── 00JavaProblem/            (**Question is in Wiki)
+│   ├── Problem1 : ExamChecking
+│   ├── Problem3 : ZodiacYear
+│   ├── Problem4 : TrainerApp
+│   └── SitSpace
+├── Ch2Array/ 
+├── Ch3 Aggregation/ 
+│   ├── BrowserAndTab
+│   ├── RegisterCourse
+│   ├── SelfBook
+│   ├── SelfTheatre
+│   ├── TestDeckCard
+│   └── HeroesBattle
+├── Ch4 Inheritance/ 
+├── Ch5 Polymorphism/ 
+├── Ch6 ReviewAdvOOP/
+│   ├── Example in Class
+│   └── PracticeAdvOOP/ **
+│       ├── Deck and Card
+│       ├── RegisCourse
+│       ├── SmartTV
+│       └── SmartPhone
+├── Ch7 Exception/
+├── Ch8 JDBC/
+├── Ch9 File and DB/
+│ 
+├── INT102/
+   
+```
+
+### สรุป by SAFE IT23
+* [สรุป Data Structure](https://drive.google.com/file/d/1TYZ_muRH-AY_jeDI_mH9mbUHIJG-uKFh/view?usp=sharing)
+
+
+
+
 
 NOTES: ดู code เฉลย ได้ที่ Ch6 ReviewAdvOOP
 
