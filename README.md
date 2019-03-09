@@ -30,6 +30,16 @@ DataStucExercise/
 ├── Ch9 File and DB/
 │ 
 ├── INT102/
+│   ├── SitSpace (Easy)
+│   └── Another Class (Logic)/
+│       ├── Ex. Decode, FindMean, FactorNum, ParityBit
+├── INT105/
+└── MacProINT105/
+    ├── AddressBook (GUI)
+    ├── FileIO
+    ├── GUI Component
+    └── SitPhoneBook
+
    
 ```
 
